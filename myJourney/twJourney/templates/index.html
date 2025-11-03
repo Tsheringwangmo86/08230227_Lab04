@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px 30px;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .journeys-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .journey-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid #84fab0;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .journey-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .journey-description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .journey-dates {
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin: 40px auto;
+            background: #84fab0;
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #66e5a1;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-direction:column;">
+            <img src="{% static 'twJourney/images/logo.svg' %}" alt="logo" style="max-width:260px; height:auto;" />
+            <h1>My Learning Journey</h1>
+            <p>Every step forward is a step toward growth </p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="journeys-container">
+            {% for journey in journeys %}
+                <div class="journey-card">
+                    <div class="journey-title">{{ journey.title }}</div>
+                    <div class="journey-description">{{ journey.description }}</div>
+                    <div class="journey-dates">
+                        Started: {{ journey.date_started }} 
+                        {% if journey.date_completed %} | Completed: {{ journey.date_completed }}{% endif %}
+                    </div>
+                </div>
+            {% empty %}
+                <div class="empty-state">
+                    <p>No learning journeys yet. Begin your first adventure today! 🚀</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div style="text-align: center;">
+            <a href="{% url 'aboutMe' %}" class="nav-link">Learn More About Me</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© {{ current_year|default:2025 }} My Learning Journey. Keep exploring!</p>
+    </footer>
+
+</body>
+</html>
