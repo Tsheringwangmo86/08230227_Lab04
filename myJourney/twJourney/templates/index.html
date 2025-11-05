@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <style>
         body {
             margin: 0;
@@ -108,9 +108,12 @@
 
     <header>
         <div style="display:flex;align-items:center;justify-content:center;gap:18px;flex-direction:column;">
-            <img src="{% static 'twJourney/images/logo.svg' %}" alt="logo" style="max-width:260px; height:auto;" />
+            <img src="{% static 'twJourney/images/logo.svg' %}" alt="logo" class="logo" />
             <h1>My Learning Journey</h1>
             <p>Every step forward is a step toward growth </p>
+            <div style="margin-top: 1.5rem; display: flex; justify-content: center;">
+                <img src="{% static 'images/6339010685811410339.jpg' %}" alt="Learning Journey" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 32px rgba(0,0,0,0.15);">
+            </div>
         </div>
     </header>
 
@@ -131,6 +134,16 @@
                 </div>
             {% endfor %}
         </div>
+        <h1>admin interface</h1>
+        <p>screenshot</p>
+        <div class="screenshot-wrapper">
+            <img src="{% static 'images/Screenshot 2025-11-02 171934.png' %}" alt="Admin Interface Screenshot" class="screenshot-img">
+        </div>
+            
+       
+
+      
+
 
         <div style="text-align: center;">
             <a href="{% url 'aboutMe' %}" class="nav-link">Learn More About Me</a>

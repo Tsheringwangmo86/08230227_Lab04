@@ -1,0 +1,62 @@
+/* styles specific to index page */
+.journeys-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.journey-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-top: 5px solid #84fab0;
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.journey-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.journey-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.journey-dates {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Screenshot / hero image utilities */
+.screenshot-wrapper {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.screenshot-img {
+    width: 100%;
+    max-width: 680px; /* limits the displayed size on large screens */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.15);
+}
